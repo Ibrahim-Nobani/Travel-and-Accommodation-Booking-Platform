@@ -4,13 +4,12 @@
 
 - **.NET Core 5.0+**: Ensure that you have .NET Core 5.0 or higher installed.
 - **Entity Framework Core**: Familiarize yourself with Entity Framework Core for database interactions.
-- **Git Best Practices**: Follow Git best practices for version control and host your project on GitHub. Commit and push your changes to GitHub at the end of each phase with meaningful commit messages describing what you have implemented in each commit.
 
 ## Database Schema
 
 Before we delve into the backend development, let's take a look at the database schema. The schema serves as the foundation of the system and includes tables representing essential entities such as Users, Hotels, Bookings, and more.
 
-![Travel Booking Platform Schema](TravelPlatformImages/TravelPlatformDiagram.png)
+![Travel Booking Platform Schema](TravelPlatformImages/TBPDatabaseSchema.png)
 
 ## Project Setup
 
@@ -92,6 +91,7 @@ Lets Take a look on how this project is expected to look to gain a better unders
 
 - **Features**: Form for personal details, payment method, and optional special requests.
 - **Backend Implementation**: Handle user information, payment processing, and optional remarks.
+- **Third Party API**: Used Braintree Paypal payments to handle the payment process.
 
 #### 5.2 Confirmation Page
 

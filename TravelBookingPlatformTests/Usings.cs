@@ -1,1 +1,16 @@
 global using Xunit;
+global using AutoMapper;
+global using Moq;
+global using TravelBookingPlatform.Application.Commands;
+global using TravelBookingPlatform.Application.DTOs;
+global using TravelBookingPlatform.Application.Exceptions;
+global using TravelBookingPlatform.Application.Interfaces;
+global using TravelBookingPlatform.Domain.Entities;
+global using TravelBookingPlatform.Infrastructure.Interfaces;
+global using TravelBookingPlatform.Infrastructure.Database;
+global using TravelBookingPlatform.Domain.Enums;
+global using TravelBookingPlatform.Domain.Interfaces;
+global using TravelBookingPlatform.Application.Queries;
+global using Microsoft.AspNetCore.Mvc;
+global using TravelBookingPlatform.Infrastructure.Models;
+global using TravelBookingPlatform.Domain.Services;
