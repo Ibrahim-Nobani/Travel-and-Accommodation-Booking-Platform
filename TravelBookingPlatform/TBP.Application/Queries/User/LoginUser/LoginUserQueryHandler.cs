@@ -40,6 +40,7 @@ public class LoginUserQueryHandler : IRequestHandler<LoginUserQuery, UserLoginRe
         {
             Id = user.Id,
             Username = user.Username,
+            Email = user.Email,
             AccessToken = accessToken
         };
     }

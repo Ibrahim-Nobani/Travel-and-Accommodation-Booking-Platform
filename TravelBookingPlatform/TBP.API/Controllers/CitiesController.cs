@@ -27,6 +27,7 @@ public class CitiesController : ControllerBase
     }
 
     [HttpGet("{cityId}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetCity([FromRoute] int cityId)
     {
         var getCityAdminQuery = new GetCityQuery

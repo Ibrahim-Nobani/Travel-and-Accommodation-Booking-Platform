@@ -16,7 +16,7 @@ public static class JwtExtensions
             .AddJwtBearer(options =>
             {
                 var jwtConfig = configuration.GetSection("JWTToken").Get<JwtTokenConfig>() ?? throw new ArgumentNullException("JWTToken:Wrong Configuration");
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig.SecretKey));
+                var key = new SymmetricSecurityKey(Convert.FromBase64String(jwtConfig.SecretKey));
 
                 options.TokenValidationParameters = new TokenValidationParameters
                 {

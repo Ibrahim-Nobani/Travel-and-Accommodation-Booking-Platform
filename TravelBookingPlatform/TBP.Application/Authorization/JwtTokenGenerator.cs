@@ -17,12 +17,17 @@ public class JwtTokenGenerator : ITokenService
 
     public Task<string> GenerateTokenAsync(User user)
     {
-        var claims = new[]
+
+        var claims = new List<Claim>
         {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Role, user.Role.RoleName)
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.Username)
         };
+
+        if (user.Role != null)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, user.Role.RoleName));
+        }
 
         var key = new SymmetricSecurityKey(Convert.FromBase64String(_jwtTokenOptions.SecretKey));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -31,7 +36,7 @@ public class JwtTokenGenerator : ITokenService
             _jwtTokenOptions.Issuer,
             _jwtTokenOptions.Audience,
             claims,
-            expires: DateTime.UtcNow.AddHours(1),
+            expires: DateTime.Now.AddHours(1),
             signingCredentials: credentials
         );
 
